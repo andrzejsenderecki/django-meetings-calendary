@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h2 style="color: white">Meetings Calendary</h2>
+    <p style="color: #00abff">Hello {{ current_user }}!</p>
+{% endblock %}
+
+{% block aside %}
+    <a href="/add_meeting" %}">Add meetings</a><br>
+    <a href="/meetings" %}">My meetings</a><br>
+    <a href="{% url 'logout' %}">Logout</a><br>
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+    <h1>{{ meeting.client }}</h1>
+    <h5>Place: {{ meeting.place }}</h5>
+    <h5>Date: {{ meeting.date }}</h5>
+    <p>Description: {{ meeting.description }}</p>
+{% endblock %}

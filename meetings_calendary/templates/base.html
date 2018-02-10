@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+
+<div id="website">
+
+<div id="header">
+{% block header %}
+    <h2 style="color: white">Meetings Calendary</h2>
+    <p><a href="{% url 'login' %}">Login</a><a href="{% url 'register' %}">Register</a></p>
+{% endblock %}
+</div>
+
+<div id="aside">
+{% block aside %}
+{% endblock %}
+</div>
+
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+</html>

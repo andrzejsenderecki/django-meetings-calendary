@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Hello!</h1>
+    <p>Please login or register to use meetings calendary.</p>
+    <p><a href="{% url 'login' %}">Login</a><a href="{% url 'register' %}">Register</a></p>
+{% endblock %}
