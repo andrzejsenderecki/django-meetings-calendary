@@ -12,10 +12,10 @@
 {% endblock %}
 
 {% block content %}
-    <div id="content">
-    <h1>{{ meeting.client }}</h1>
-    <h5>Place: {{ meeting.place }}</h5>
-    <h5>Date: {{ meeting.date }}</h5>
-    <h5>Hour: {{ meeting.hour }}</h5>
-    <p>Description: {{ meeting.description }}</p>
+    <h3>Edit Meeting</h3>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ edit_meeting_form.as_p }}
+    <button type="submit">Edit meeting</button>
+    </form>
 {% endblock %}

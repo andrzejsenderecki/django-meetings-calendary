@@ -35,5 +35,28 @@ def new_meeting(request):
         meeting_form = MeetingForm()
     return render(request, 'meetings/new_meeting.html', {'meeting_form': meeting_form, 'current_user': current_user})
 
+@login_required
+def edit_meeting(request, meeting_id):
+    current_user = User.objects.get(username=request.user)
+    edit_meeting = Meeting.objects.get(id=meeting_id)
+    edit_meeting_form = MeetingForm(initial={'client': edit_meeting.client, 'place': edit_meeting.place,
+                                             'date': edit_meeting.date, 'hour': edit_meeting.hour,
+                                             'topic': edit_meeting.topic, 'description': edit_meeting.description})
+
+    if request.method == 'POST':
+        edit_meeting = Meeting.objects.get(id=meeting_id)
+        edit_meeting_form = MeetingForm(instance=edit_meeting, data=request.POST, initial={'client': edit_meeting.client, 'place': edit_meeting.place,
+                                             'date': edit_meeting.date, 'hour': edit_meeting.hour,
+                                             'topic': edit_meeting.topic, 'description': edit_meeting.description})
+        if edit_meeting_form.is_valid():
+            new_meeting = edit_meeting_form.save(commit=False)
+            new_meeting.leader = request.user
+            new_meeting.save()
+            return HttpResponseRedirect('/dashboard')
+        else:
+            edit_meeting = MeetingForm()
+    return render(request, 'meetings/edit_meeting.html', {'edit_meeting_form': edit_meeting_form,
+                                                          'current_user': current_user})
+
 def home(request):
     return render(request, 'meetings/home.html')
