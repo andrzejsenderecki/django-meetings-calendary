@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import MeetingForm
 from django.http import HttpResponseRedirect
+from django.utils import timezone
+import datetime
 
 @login_required
 def meetings(request):
@@ -20,6 +22,16 @@ def meeting(request, meeting_id):
     return render(request, 'meetings/meeting.html', {'meeting': Meeting.objects.get(id=meeting_id),
                                                      'current_user': current_user,
                                                      'meeting_user': meeting_user},)
+
+@login_required
+def today_meetings(request):
+    current_user = User.objects.get(username=request.user)
+    start_date = datetime.date.today()
+    end_date = datetime.date.today()
+    meetings_user = Meeting.objects.filter(leader__username=current_user, date__range=(start_date, end_date))
+
+    return render(request, 'meetings/meetings_all.html', {'current_user': current_user,
+                                                          'meetings_user': meetings_user},)
 
 @login_required
 def new_meeting(request):

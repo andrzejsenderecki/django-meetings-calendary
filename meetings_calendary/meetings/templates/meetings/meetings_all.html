@@ -11,6 +11,8 @@
 {% endblock %}
 
 {% block content %}
+<a href="/today_meetings" %}">Today meetings</a><br>
+<br>
 {% for meetings in meetings_user %}
 <p><a href="/{{ meetings.id }}">{{ meetings.client }}</a></p>
 {%endfor%}
