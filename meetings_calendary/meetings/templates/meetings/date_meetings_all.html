@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block header %}
     <h2 style="color: white">Meetings Calendary</h2>
     <p style="color: #00abff">Hello {{ current_user }}!</p>
@@ -12,10 +11,9 @@
 {% endblock %}
 
 {% block content %}
-    <h3>New Meeting</h3>
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ meeting_form.as_p }}
-    <button type="submit">Add meeting</button>
-    </form>
+<a href="/today_meetings" %}">Today meetings</a> <a href="/date_meeting" %}">Date meeting</a><br>
+<br>
+{% for date_meetings_user in date_meetings_user %}
+<p><a href="/{{ date_meetings_user.id }}">{{ date_meetings_user.client }}</a></p>
+{%endfor%}
 {% endblock %}

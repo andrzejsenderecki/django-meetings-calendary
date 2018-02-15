@@ -11,8 +11,19 @@
 {% endblock %}
 
 {% block content %}
-<a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a><br>
+<a href="/today_meetings" %}">Today meetings</a><br>
 <br>
+
+{% block form %}
+<h3>Set and display range meetings</h3>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ date_meeting_form.as_p }}
+<button type="submit">Display meetings</button>
+</form>
+{% endblock %}
+<br>
+
 {% for meetings in meetings_user %}
 <p><a href="/{{ meetings.id }}">{{ meetings.client }}</a></p>
 {%endfor%}
