@@ -20,4 +20,12 @@ class DateMeeting(models.Model):
     def __str__(self):
         return self.date_meeting
 
+class DateRangeMeeting(models.Model):
+    date_meeting_start = models.CharField(max_length=50)
+    date_meeting_end = models.CharField(max_length=50)
+    leader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.date_meeting_start
+
 
