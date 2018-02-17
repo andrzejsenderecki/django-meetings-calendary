@@ -8,6 +8,7 @@ class Meeting(models.Model):
     hour = models.CharField(max_length=50)
     topic = models.CharField(max_length=150)
     description = models.TextField()
+    attachment = models.FileField(upload_to='file/')
     leader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
     def __str__(self):

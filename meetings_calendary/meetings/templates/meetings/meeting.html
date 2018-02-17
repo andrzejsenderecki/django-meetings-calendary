@@ -20,5 +20,7 @@
     <h5>Place: {{ meeting.place }}</h5>
     <h5>Date: {{ meeting.date }}</h5>
     <h5>Hour: {{ meeting.hour }}</h5>
-    <p>Description: {{ meeting.description }}</p>
+    <h5>Description: {{ meeting.description }}</h5>
+    <h5><a href="{{ meeting.attachment.url }}">Download file</a></h5>
+
 {% endblock %}

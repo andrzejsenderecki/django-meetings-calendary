@@ -90,7 +90,7 @@ def date_range_meetings_all(request):
 def new_meeting(request):
     current_user = User.objects.get(username=request.user)
     if request.method == 'POST':
-        meeting_form = MeetingForm(request.POST)
+        meeting_form = MeetingForm(request.POST, request.FILES)
         if meeting_form.is_valid():
             new_meeting = meeting_form.save(commit=False)
             new_meeting.leader = request.user
@@ -107,16 +107,18 @@ def edit_meeting(request, meeting_id):
     edit_meeting = Meeting.objects.get(id=meeting_id)
     edit_meeting_form = MeetingForm(initial={'client': edit_meeting.client, 'place': edit_meeting.place,
                                              'date': edit_meeting.date, 'hour': edit_meeting.hour,
-                                             'topic': edit_meeting.topic, 'description': edit_meeting.description})
+                                             'topic': edit_meeting.topic, 'description': edit_meeting.description,
+                                             'attachment': edit_meeting.attachment})
 
     if request.method == 'POST':
         edit_meeting = Meeting.objects.get(id=meeting_id)
-        edit_meeting_form = MeetingForm(instance=edit_meeting, data=request.POST, initial={'client': edit_meeting.client,
+        edit_meeting_form = MeetingForm(instance=edit_meeting, data=request.POST, files = request.FILES, initial={'client': edit_meeting.client,
                                                                                            'place': edit_meeting.place,
                                                                                            'date': edit_meeting.date,
                                                                                            'hour': edit_meeting.hour,
                                                                                            'topic': edit_meeting.topic,
-                                                                                           'description': edit_meeting.description})
+                                                                                           'description': edit_meeting.description,
+                                                                                           'attachment': edit_meeting.attachment,})
         if edit_meeting_form.is_valid():
             new_meeting = edit_meeting_form.save(commit=False)
             new_meeting.leader = request.user

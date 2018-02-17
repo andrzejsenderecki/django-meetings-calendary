@@ -7,7 +7,7 @@ class MeetingForm(forms.ModelForm):
     date = forms.DateField(widget=forms.SelectDateWidget())
     class Meta:
         model = Meeting
-        fields = ('client', 'place', 'date', 'hour', 'topic', 'description',)
+        fields = ('client', 'place', 'date', 'hour', 'topic', 'description', 'attachment')
 
 class DateMeetingForm(forms.ModelForm):
     date_meeting = forms.DateField(widget=forms.SelectDateWidget())
