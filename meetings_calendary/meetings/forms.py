@@ -1,5 +1,5 @@
 from django import forms
-from .models import Meeting, DateMeeting, DateRangeMeeting
+from .models import Meeting, DateMeeting, DateRangeMeeting, FindMeeting
 from django.forms.fields import DateField
 from django.contrib.admin.widgets import AdminDateWidget
 
@@ -21,4 +21,15 @@ class DateRangeMeetingForm(forms.ModelForm):
     class Meta:
         model = DateRangeMeeting
         fields = ('date_meeting_start', 'date_meeting_end',)
+
+class FindMeetingForm(forms.ModelForm):
+    class Meta:
+        model = FindMeeting
+        fields = ('find_meeting',)
+
+class SendMeetingForm(forms.ModelForm):
+    email = forms.EmailField()
+    class Meta:
+        model = Meeting
+        fields = ('email', 'client', 'place', 'date', 'hour', 'topic', 'description')
 

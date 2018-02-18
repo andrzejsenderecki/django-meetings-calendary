@@ -13,10 +13,10 @@
 
 {% block content %}
     <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
-    <h3>New Meeting</h3>
+    <h3>Send Meeting</h3>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ meeting_form.as_p }}
-    <button type="submit">Add meeting</button>
+    {{ send_meeting_form.as_p }}
+    <button type="submit">Send meeting</button>
     </form>
 {% endblock %}

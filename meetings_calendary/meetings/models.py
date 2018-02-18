@@ -29,4 +29,9 @@ class DateRangeMeeting(models.Model):
     def __str__(self):
         return self.date_meeting_start
 
+class FindMeeting(models.Model):
+    find_meeting = models.CharField(max_length=50)
+    leader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return self.find_meeting

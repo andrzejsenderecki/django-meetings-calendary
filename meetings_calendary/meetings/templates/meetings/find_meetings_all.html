@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block header %}
+    <h2 style="color: white">Meetings Calendary</h2>
+    <p style="color: #00abff">Hello {{ current_user }}!</p>
+{% endblock %}
+
+{% block aside %}
+    <a href="/add_meeting" %}">Add meetings</a><br>
+    <a href="/meetings" %}">My meetings</a><br>
+    <a href="{% url 'logout' %}">Logout</a><br>
+{% endblock %}
+
+{% block content %}
+<a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
+<br>
+{% for find_meetings_user_client in find_meetings_user_client %}
+<p><a href="/{{ find_meetings_user_client.id }}">{{ find_meetings_user_client.client }}</a></p>
+{%endfor%}
+{% for find_meetings_user_place in find_meetings_user_place %}
+<p><a href="/{{ find_meetings_user_place.id }}">{{ find_meetings_user_place.client }}</a></p>
+{%endfor%}
+{% for find_meetings_user_date in find_meetings_user_date %}
+<p><a href="/{{ find_meetings_user_date.id }}">{{ find_meetings_user_date.client }}</a></p>
+{%endfor%}
+{% for find_meetings_user_hour in find_meetings_user_hour %}
+<p><a href="/{{ find_meetings_user_hour.id }}">{{ find_meetings_user_hour.client }}</a></p>
+{%endfor%}
+{% for find_meetings_user_topic in find_meetings_user_topic %}
+<p><a href="/{{ find_meetings_user_topic.id }}">{{ find_meetings_user_topic.client }}</a></p>
+{%endfor%}
+{% for find_meetings_user_description in find_meetings_user_description %}
+<p><a href="/{{ find_meetings_user_description.id }}">{{ find_meetings_user_description.client }}</a></p>
+{%endfor%}
+{% endblock %}

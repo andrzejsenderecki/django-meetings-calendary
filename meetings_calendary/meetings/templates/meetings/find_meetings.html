@@ -11,20 +11,20 @@
 {% endblock %}
 
 {% block content %}
-<a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
+<a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meetings</a><br>
 <br>
 
 {% block form %}
-<h3>Set and display range meetings</h3>
+<h3>Find meeting</h3>
 <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
-{{ date_meeting_form.as_p }}
-<button type="submit">Display meetings</button>
+{{ find_meeting_form.as_p }}
+<button type="submit">Find meetings</button>
 </form>
 {% endblock %}
 <br>
 
-{% for meetings in meetings_user %}
-<p><a href="/{{ meetings.id }}">{{ meetings.client }}</a></p>
+{% for date_meetings_user in date_meetings_user %}
+<p><a href="/{{ date_meetings_user.id }}">{{ date_meetings_user.client }}</a></p>
 {%endfor%}
 {% endblock %}

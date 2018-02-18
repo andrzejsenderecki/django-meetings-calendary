@@ -12,9 +12,9 @@
 {% endblock %}
 
 {% block content %}
-    <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a><br>
+    <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
     <br>
-    <a href="/{{ meeting.id }}/edit_meeting">Edit Meeting</a> <a href="/{{ meeting.id }}/delete_meeting">Delete Meeting</a>
+    <a href="/{{ meeting.id }}/edit_meeting">Edit Meeting</a> <a href="/{{ meeting.id }}/send_meeting">Send Meeting</a> <a href="/{{ meeting.id }}/delete_meeting">Delete Meeting</a>
     <div id="content">
     <h1>{{ meeting.client }}</h1>
     <h5>Place: {{ meeting.place }}</h5>
