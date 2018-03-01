@@ -1,6 +1,7 @@
 # django-meetings-calendary
 
 ![1](https://user-images.githubusercontent.com/33809996/36861883-91687b8a-1d85-11e8-9243-1ff685b158ce.jpg)
+<hr>
 ![2](https://user-images.githubusercontent.com/33809996/36861888-93f093e2-1d85-11e8-83bc-3357c0fafc6f.jpg)
 ![3](https://user-images.githubusercontent.com/33809996/36861893-965c8d02-1d85-11e8-9318-a18ff019b20c.jpg)
 ![4](https://user-images.githubusercontent.com/33809996/36861894-987fdbde-1d85-11e8-9c78-2e8e801464b3.jpg)
