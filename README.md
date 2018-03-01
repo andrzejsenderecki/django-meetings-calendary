@@ -16,6 +16,7 @@ This aplication is meetings calendary which I wrote at Django. The aplication al
 - displaying meetings by set date range
 - finding meetings by write word to search
 
+
 ![1](https://user-images.githubusercontent.com/33809996/36861883-91687b8a-1d85-11e8-9243-1ff685b158ce.jpg)
 <hr>
 
