@@ -2,7 +2,7 @@
 
 {% block header %}
     <h2 style="color: white">Meetings Calendary</h2>
-    <p style="color: #00abff">Hello {{ current_user }}!</p>
+    <p style="color: white">Hello {{ current_user }}!</p>
 {% endblock %}
 
 {% block aside %}
@@ -14,13 +14,14 @@
 {% block content %}
     <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
     <br>
-    <a href="/{{ meeting.id }}/edit_meeting">Edit Meeting</a> <a href="/{{ meeting.id }}/send_meeting">Send Meeting</a> <a href="/{{ meeting.id }}/delete_meeting">Delete Meeting</a>
-    <div id="content">
+    <a href="/{{ meeting.id }}/edit_meeting">Edit meeting</a> <a href="/{{ meeting.id }}/send_meeting">Send Meeting</a> <a href="/{{ meeting.id }}/delete_meeting">Delete Meeting</a>
+    <br>
+    <br>
     <h1>{{ meeting.client }}</h1>
-    <h5>Place: {{ meeting.place }}</h5>
-    <h5>Date: {{ meeting.date }}</h5>
-    <h5>Hour: {{ meeting.hour }}</h5>
-    <h5>Description: {{ meeting.description }}</h5>
-    <h5><a href="{{ meeting.attachment.url }}">Download file</a></h5>
-
+    <p>Place: {{ meeting.place }}</p>
+    <p>Date: {{ meeting.date }}</p>
+    <p>Hour: {{ meeting.hour }}</p>
+    <p>Topic: {{ meeting.topic }}</p>
+    <p>Description: {{ meeting.description }}</p>
+    <p><a href="{{ meeting.attachment.url }}">Download file</a></p>
 {% endblock %}

@@ -13,17 +13,11 @@
 {% block content %}
     <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
     <br>
-    {% block form %}
-        <h1>Find meeting</h1>
-        <br>
-        <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ find_meeting_form.as_p }}
-        <button type="submit">Find meetings</button>
-        </form>
-    {% endblock %}
+    <h1>Today meetings</h1>
     <br>
-    {% for date_meetings_user in date_meetings_user %}
-        <p><a href="/{{ date_meetings_user.id }}">{{ date_meetings_user.client }}</a></p>
-    {%endfor%}
+    {% for meetings in meetings_user %}
+    <p><a href="/{{ meetings.id }}">{{ meetings.client }}</a></p>
+    <h4>Date: {{ meetings.date }}</h4>
+    <br>
+{%endfor%}
 {% endblock %}

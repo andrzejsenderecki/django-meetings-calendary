@@ -3,17 +3,15 @@
 {% block content %}
   <h1>Login</h1><br>
   {% if form.errors %}
-    <p>
-      Bad user data!
-      <p>If you haven't account click <a href="{% url "register" %}">here.</a></p>
-    </p>
+    <p>Bad user data!</p>
+    <p>If you haven't account click <a href="{% url "register" %}">here.</a></p>
   {% else %}
     <p>If you haven't account click <a href="{% url "register" %}">here.</a></p>
   {% endif %}
     <form action="{% url 'login' %}" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Login"></p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p><input type="submit" value="Login"></p>
     </form>
 {% endblock %}

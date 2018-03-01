@@ -29,7 +29,7 @@ def today_meetings(request):
     end_date = datetime.date.today()
     meetings_user = Meeting.objects.filter(leader__username=current_user, date__range=(start_date, end_date))
 
-    return render(request, 'meetings/meetings_all.html', {'current_user': current_user,
+    return render(request, 'meetings/meetings_today.html', {'current_user': current_user,
                                                           'meetings_user': meetings_user})
 
 @login_required

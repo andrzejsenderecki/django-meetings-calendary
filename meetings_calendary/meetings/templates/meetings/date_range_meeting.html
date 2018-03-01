@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block header %}
     <h2 style="color: white">Meetings Calendary</h2>
-    <p style="color: #00abff">Hello {{ current_user }}!</p>
+    <p style="color: white">Hello {{ current_user }}!</p>
 {% endblock %}
 
 {% block aside %}
@@ -15,7 +15,8 @@
 <br>
 
 {% block form %}
-<h3>Set and display range meetings</h3>
+<h1>Set dates range and display meetings</h1>
+<br>
 <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
 {{ date_range_meeting_form.as_p }}

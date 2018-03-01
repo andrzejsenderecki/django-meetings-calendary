@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block header %}
     <h2 style="color: white">Meetings Calendary</h2>
-    <p style="color: #00abff">Hello {{ current_user }}!</p>
+    <p style="color: white">Hello {{ current_user }}!</p>
 {% endblock %}
 
 {% block aside %}
@@ -13,7 +13,11 @@
 {% block content %}
 <a href="/today_meetings" %}">Today meetings</a> <a href="/date_meetings" %}">Date meetings</a> <a href="/date_range_meetings" %}">Date range meetings</a> <a href="/find_meetings" %}">Find meeting</a><br>
 <br>
+<h1>Found meetings</h1>
+<br>
 {% for date_meetings_user in date_meetings_user %}
 <p><a href="/{{ date_meetings_user.id }}">{{ date_meetings_user.client }}</a></p>
+<h4>Date: {{ date_meetings_user.date }}</h4>
+<br>
 {%endfor%}
 {% endblock %}
